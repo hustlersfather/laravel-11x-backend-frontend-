@@ -17,123 +17,165 @@ class FrontendController extends Controller
         return view('frontend.index');
     }
 
+    // Other methods...
+
     /**
-     * Privacy Policy Page.
+     * Accounts Page.
      *
      * @return View
      */
-    public function privacy(): View
+    public function accounts(): View
     {
-        return view('frontend.privacy');
+        return view('frontend.accounts');
     }
 
     /**
-     * Terms & Conditions Page.
+     * Banks Page.
      *
      * @return View
      */
-    public function terms(): View
+    public function banks(): View
     {
-        return view('frontend.terms');
+        return view('frontend.banks');
     }
 
     /**
-     * Tutorial Page.
+     * cPanels Page.
      *
      * @return View
      */
-    public function tutorial(): View
+    public function cpanels(): View
     {
-        return view('frontend.tutorial');
+        return view('frontend.cpanels');
     }
 
     /**
-     * Reports Page.
+     * Images Page.
      *
      * @return View
      */
-    public function reports(): View
+    public function images(): View
     {
-        return view('frontend.reports');
+        return view('frontend.images');
     }
 
     /**
-     * Rules Page.
+     * Mailers Page.
      *
      * @return View
      */
-    public function rules(): View
+    public function mailers(): View
     {
-        return view('frontend.rules');
+        return view('frontend.mailers');
     }
 
     /**
-     * Static Page.
+     * Manager Page.
      *
      * @return View
      */
-    public function static(): View
+    public function manager(): View
     {
-        return view('frontend.static');
+        return view('frontend.manager');
     }
 
     /**
-     * SMTP Page.
+     * News Page.
      *
      * @return View
      */
-    public function smtp(): View
+    public function news(): View
     {
-        return view('frontend.smtp');
+        return view('frontend.news');
     }
 
     /**
-     * cPanel Page.
+     * New Seller Page.
      *
      * @return View
      */
-    public function cPanel(): View
+    public function newseller(): View
     {
-        return view('frontend.cPanel');
+        return view('frontend.newseller');
     }
 
     /**
-     * Shell Page.
+     * Purchases Page.
      *
      * @return View
      */
-    public function shell(): View
+    public function purchases(): View
     {
-        return view('frontend.shell');
+        return view('frontend.purchases');
     }
 
     /**
-     * Leads Page.
+     * Reseller Page.
      *
      * @return View
      */
-    public function leads(): View
+    public function resseller(): View
     {
-        return view('frontend.leads');
+        return view('frontend.resseller');
     }
 
     /**
-     * Premium Page.
+     * Scam Pages.
      *
      * @return View
      */
-    public function premium(): View
+    public function scampages(): View
     {
-        return view('frontend.premium');
+        return view('frontend.scampages');
     }
 
     /**
-     * Active Page.
+     * SMTP Pages.
      *
      * @return View
      */
-    public function active(): View
+    public function smtps(): View
     {
-        return view('frontend.active');
+        return view('frontend.smtps');
+    }
+
+    /**
+     * Stuff Page.
+     *
+     * @return View
+     */
+    public function stufs(): View
+    {
+        return view('frontend.stufs');
+    }
+
+    /**
+     * Ticket Page.
+     *
+     * @return View
+     */
+    public function ticket(): View
+    {
+        return view('frontend.ticket');
+    }
+
+    /**
+     * Tutorials Page.
+     *
+     * @return View
+     */
+    public function tutorials(): View
+    {
+        return view('frontend.tutorials');
+    }
+
+    /**
+     * Users Page.
+     *
+     * @return View
+     */
+    public function users(): View
+    {
+        return view('frontend.users');
     }
 }
