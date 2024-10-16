@@ -1,3 +1,8 @@
+update all routes and 
+Update frontend/FrontendController.php to make sure it corresponds to this below 
+
+Making sure all pages are session auth protected 
+
 <?php
 
 use App\Http\Controllers\Frontend\FrontendController;
@@ -44,15 +49,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
         *
         * ---------------------------------------------------------------------
         */
-        $module_name = 'users';
+        $market_name = 'users';
         $controller_name = 'UserController';
-        Route::get('profile/edit', ['as' => "{$module_name}.profileEdit", 'uses' => "{$controller_name}@profileEdit"]);
-        Route::patch('profile/edit', ['as' => "{$module_name}.profileUpdate", 'uses' => "{$controller_name}@profileUpdate"]);
-        Route::get('profile/changePassword', ['as' => "{$module_name}.changePassword", 'uses' => "{$controller_name}@changePassword"]);
-        Route::patch('profile/changePassword', ['as' => "{$module_name}.changePasswordUpdate", 'uses' => "{$controller_name}@changePasswordUpdate"]);
-        Route::get('profile/{username?}', ['as' => "{$module_name}.profile", 'uses' => "{$controller_name}@profile"]);
-        Route::get("{$module_name}/emailConfirmationResend", ['as' => "{$module_name}.emailConfirmationResend", 'uses' => "{$controller_name}@emailConfirmationResend"]);
-        Route::delete("{$module_name}/userProviderDestroy", ['as' => "{$module_name}.userProviderDestroy", 'uses' => "{$controller_name}@userProviderDestroy"]);
+        Route::get('profile/edit', ['as' => "{$market_name}.profileEdit", 'uses' => "{$controller_name}@profileEdit"]);
+        Route::patch('profile/edit', ['as' => "{$market_name}.profileUpdate", 'uses' => "{$controller_name}@profileUpdate"]);
+        Route::get('profile/changePassword', ['as' => "{$market_name}.changePassword", 'uses' => "{$controller_name}@changePassword"]);
+        Route::patch('profile/changePassword', ['as' => "{$market_name}.changePasswordUpdate", 'uses' => "{$controller_name}@changePasswordUpdate"]);
+        Route::get('profile/{username?}', ['as' => "{$market_name}.profile", 'uses' => "{$controller_name}@profile"]);
+        Route::get("{$market_name}/emailConfirmationResend", ['as' => "{$market_name}.emailConfirmationResend", 'uses' => "{$controller_name}@emailConfirmationResend"]);
+        Route::delete("{$market_name}/userProviderDestroy", ['as' => "{$market_name}.userProviderDestroy", 'uses' => "{$controller_name}@userProviderDestroy"]);
     });
 });
 
@@ -77,10 +82,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
      * ---------------------------------------------------------------------
      */
     Route::group(['middleware' => ['can:edit_settings']], function () {
-        $module_name = 'settings';
+        $market_name = 'settings';
         $controller_name = 'SettingController';
-        Route::get("{$module_name}", "{$controller_name}@index")->name("{$module_name}");
-        Route::post("{$module_name}", "{$controller_name}@store")->name("{$module_name}.store");
+        Route::get("{$market_name}", "{$controller_name}@index")->name("{$market_name}");
+        Route::post("{$market_name}", "{$controller_name}@store")->name("{$market_name}.store");
     });
 
     /*
@@ -89,12 +94,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     *
     * ---------------------------------------------------------------------
     */
-    $module_name = 'notifications';
+    $market_name = 'notifications';
     $controller_name = 'NotificationsController';
-    Route::get("{$module_name}", ['as' => "{$module_name}.index", 'uses' => "{$controller_name}@index"]);
-    Route::get("{$module_name}/markAllAsRead", ['as' => "{$module_name}.markAllAsRead", 'uses' => "{$controller_name}@markAllAsRead"]);
-    Route::delete("{$module_name}/deleteAll", ['as' => "{$module_name}.deleteAll", 'uses' => "{$controller_name}@deleteAll"]);
-    Route::get("{$module_name}/{id}", ['as' => "{$module_name}.show", 'uses' => "{$controller_name}@show"]);
+    Route::get("{$market_name}", ['as' => "{$market_name}.index", 'uses' => "{$controller_name}@index"]);
+    Route::get("{$market_name}/markAllAsRead", ['as' => "{$market_name}.markAllAsRead", 'uses' => "{$controller_name}@markAllAsRead"]);
+    Route::delete("{$market_name}/deleteAll", ['as' => "{$market_name}.deleteAll", 'uses' => "{$controller_name}@deleteAll"]);
+    Route::get("{$market_name}/{id}", ['as' => "{$market_name}.show", 'uses' => "{$controller_name}@show"]);
 
     /*
     *
@@ -102,12 +107,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     *
     * ---------------------------------------------------------------------
     */
-    $module_name = 'backups';
+    $market_name = 'backups';
     $controller_name = 'BackupController';
-    Route::get("{$module_name}", ['as' => "{$module_name}.index", 'uses' => "{$controller_name}@index"]);
-    Route::get("{$module_name}/create", ['as' => "{$module_name}.create", 'uses' => "{$controller_name}@create"]);
-    Route::get("{$module_name}/download/{file_name}", ['as' => "{$module_name}.download", 'uses' => "{$controller_name}@download"]);
-    Route::get("{$module_name}/delete/{file_name}", ['as' => "{$module_name}.delete", 'uses' => "{$controller_name}@delete"]);
+    Route::get("{$market_name}", ['as' => "{$market_name}.index", 'uses' => "{$controller_name}@index"]);
+    Route::get("{$market_name}/create", ['as' => "{$market_name}.create", 'uses' => "{$controller_name}@create"]);
+    Route::get("{$market_name}/download/{file_name}", ['as' => "{$market_name}.download", 'uses' => "{$controller_name}@download"]);
+    Route::get("{$market_name}/delete/{file_name}", ['as' => "{$market_name}.delete", 'uses' => "{$controller_name}@delete"]);
 
     /*
     *
@@ -115,9 +120,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     *
     * ---------------------------------------------------------------------
     */
-    $module_name = 'roles';
+    $market_name = 'roles';
     $controller_name = 'RolesController';
-    Route::resource("{$module_name}", "{$controller_name}");
+    Route::resource("{$market_name}", "{$controller_name}");
 
     /*
     *
@@ -125,19 +130,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
     *
     * ---------------------------------------------------------------------
     */
-    $module_name = 'users';
+    $market_name = 'users';
     $controller_name = 'UserController';
-    Route::get("{$module_name}/{id}/resend-email-confirmation", ['as' => "{$module_name}.emailConfirmationResend", 'uses' => "{$controller_name}@emailConfirmationResend"]);
-    Route::delete("{$module_name}/user-provider-destroy", ['as' => "{$module_name}.userProviderDestroy", 'uses' => "{$controller_name}@userProviderDestroy"]);
-    Route::get("{$module_name}/{id}/change-password", ['as' => "{$module_name}.changePassword", 'uses' => "{$controller_name}@changePassword"]);
-    Route::patch("{$module_name}/{id}/change-password", ['as' => "{$module_name}.changePasswordUpdate", 'uses' => "{$controller_name}@changePasswordUpdate"]);
-    Route::get("{$module_name}/trashed", ['as' => "{$module_name}.trashed", 'uses' => "{$controller_name}@trashed"]);
-    Route::patch("{$module_name}/{id}/trashed", ['as' => "{$module_name}.restore", 'uses' => "{$controller_name}@restore"]);
-    Route::get("{$module_name}/index_data", ['as' => "{$module_name}.index_data", 'uses' => "{$controller_name}@index_data"]);
-    Route::get("{$module_name}/index_list", ['as' => "{$module_name}.index_list", 'uses' => "{$controller_name}@index_list"]);
-    Route::patch("{$module_name}/{id}/block", ['as' => "{$module_name}.block", 'uses' => "{$controller_name}@block", 'middleware' => ['can:block_users']]);
-    Route::patch("{$module_name}/{id}/unblock", ['as' => "{$module_name}.unblock", 'uses' => "{$controller_name}@unblock", 'middleware' => ['can:block_users']]);
-    Route::resource("{$module_name}", "{$controller_name}");
+    Route::get("{$market_name}/{id}/resend-email-confirmation", ['as' => "{$market_name}.emailConfirmationResend", 'uses' => "{$controller_name}@emailConfirmationResend"]);
+    Route::delete("{$market_name}/user-provider-destroy", ['as' => "{$market_name}.userProviderDestroy", 'uses' => "{$controller_name}@userProviderDestroy"]);
+    Route::get("{$market_name}/{id}/change-password", ['as' => "{$market_name}.changePassword", 'uses' => "{$controller_name}@changePassword"]);
+    Route::patch("{$market_name}/{id}/change-password", ['as' => "{$market_name}.changePasswordUpdate", 'uses' => "{$controller_name}@changePasswordUpdate"]);
+    Route::get("{$market_name}/trashed", ['as' => "{$market_name}.trashed", 'uses' => "{$controller_name}@trashed"]);
+    Route::patch("{$market_name}/{id}/trashed", ['as' => "{$market_name}.restore", 'uses' => "{$controller_name}@restore"]);
+    Route::get("{$market_name}/index_data", ['as' => "{$market_name}.index_data", 'uses' => "{$controller_name}@index_data"]);
+    Route::get("{$market_name}/index_list", ['as' => "{$market_name}.index_list", 'uses' => "{$controller_name}@index_list"]);
+    Route::patch("{$market_name}/{id}/block", ['as' => "{$market_name}.block", 'uses' => "{$controller_name}@block", 'middleware' => ['can:block_users']]);
+    Route::patch("{$market_name}/{id}/unblock", ['as' => "{$market_name}.unblock", 'uses' => "{$controller_name}@unblock", 'middleware' => ['can:block_users']]);
+    Route::resource("{$market_name}", "{$controller_name}");
 });
 
 /**
@@ -146,3 +151,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'can:view_backend']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+Continue from here integrate 
+touch resources/views/index.blade.php
+touch resources/views/accounts/index.blade.php
+touch resources/views/banks/index.blade.php
+touch resources/views/cpanels/index.blade.php
+touch resources/views/mailers/index.blade.php
+touch resources/views/purchases/index.blade.php
+touch resources/views/scampages/index.blade.php
+touch resources/views/smtps/index.blade.php
+touch resources/views/shell/index.blade.php
+touch resources/views/ticket/index.blade.php
+touch resources/views/tutorials/index.blade.php
